@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>Abdurauf Fitrat | Meros</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #0f172a;
+            color: #f8fafc;
+            line-height: 1.6;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            padding: 15px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+
+        header h1 {
+            color: #facc15;
+            font-size: 22px;
+        }
+
+        .menu-btn {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: #facc15;
+        }
+
+        nav {
+            display: flex;
+        }
+
+        nav a {
+            color: #f8fafc;
+            margin-left: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #facc15;
+        }
+
+        section {
+            padding: 100px 60px;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(to bottom, #020617, #0f172a);
+            margin-top: 60px;
+        }
+
+        .hero h2 {
+            font-size: 42px;
+            color: #facc15;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: 20px auto;
+            font-size: 18px;
+            color: #cbd5f5;
+        }
+
+        .btn {
+            display: inline-block;
+            margin: 10px;
+            padding: 12px 30px;
+            border-radius: 30px;
+            background: #facc15;
+            color: #020617;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about img {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            object-fit: cover;
+            border-radius: 20px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        h3 {
+            color: #facc15;
+            margin-bottom: 15px;
+            font-size: 28px;
+        }
+
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: #020617;
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        footer {
+            background: #020617;
+            padding: 40px;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 5px 0;
+            color: #cbd5f5;
+        }
+
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+            }
+
+            header h1 {
+                font-size: 18px;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background: rgba(15, 23, 42, 0.98);
+                padding: 20px;
+                border-bottom: 1px solid #facc15;
+            }
+
+            nav.show {
+                display: flex;
+            }
+
+            nav a {
+                margin-left: 0;
+                padding: 12px 0;
+                border-bottom: 1px solid #1e293b;
+                display: block;
+            }
+
+            section {
+                padding: 80px 20px;
+            }
+
+            .hero {
+                margin-top: 0;
+                height: auto;
+                padding-top: 80px;
+            }
+
+            .hero h2 {
+                font-size: 28px;
+            }
+
+            .hero p {
+                font-size: 16px;
+                max-width: 100%;
+            }
+
+            .btn {
+                display: block;
+                width: 80%;
+                max-width: 200px;
+                margin: 10px auto;
+                padding: 14px 20px;
+                font-size: 16px;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            h3 {
+                font-size: 22px;
+            }
+
+            .media-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .card {
+                padding: 15px;
+            }
+
+            footer {
+                padding: 30px 20px;
+            }
+
+            footer p {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 12px 15px;
+            }
+
+            header h1 {
+                font-size: 16px;
+            }
+
+            .menu-btn {
+                font-size: 24px;
+            }
+
+            section {
+                padding: 60px 15px;
+            }
+
+            .hero h2 {
+                font-size: 24px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            h3 {
+                font-size: 20px;
+            }
+
+            .btn {
+                padding: 12px 20px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>FITRAT</h1>
+
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+    <nav id="navMenu">
+        <a href="#home">Bosh sahifa</a>
+        <a href="#about">Haqida</a>
+        <a href="#audio">Audio</a>
+        <a href="#video">Video</a>
+        <a href="#footer">Mualliflar</a>
+    </nav>
+</header>
+
+
+<section class="hero" id="home">
+    <div>
+        <h2>Abdurauf Fitrat</h2>
+        <p>
+            Jadidchilik harakatining yetakchi vakili, yozuvchi, faylasuf va
+            millat ma’rifati uchun kurashgan buyuk siymo.
+        </p>
+        <a href="#audio" class="btn">🎧 Audio</a>
+        <a href="#video" class="btn">🎬 Video</a>
+    </div>
+</section>
+
+<section id="about">
+    <div class="about">
+        <img src="https://corp.uzairways.com/sites/default/files/inline-images/photo_2020-12-25_12-08-37.jpg" alt="Abdurauf Fitrat">
+        <div>
+            <h3>Fitrat haqida</h3>
+            <p>
+                Abdurauf Fitrat — o‘zbek jadid adabiyotining yirik namoyandasi.
+                U millat uyg‘onishi, ta’lim, til va madaniyat taraqqiyoti uchun
+                umrini bag‘ishlagan.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section id="audio">
+    <h3>🎧 Audio materiallar</h3>
+    <div class="media-grid">
+        <div class="card">
+            <p>Fitrat "Yurt qayg'usi"</p>
+            <audio controls>
+                <source src="Abdurauf_Fitrat_Temur_oldinda_Yurt_qayg_usi_turkumidan_1917.mp4" type="audio/mpeg">
+            </audio>
+        </div>
+        <div class="card">
+            <p>Ibratli gap</p>
+            <audio controls>
+                <source src="Jadidlar_fikrlari. Abdurauf Fitrat.mp4" type="audio/mp4">
+            </audio>
+        </div>
+    </div>
+</section>
+
+<section id="video">
+    <h3>🎬 Video materiallar</h3>
+    <div class="media-grid">
+        <div class="card">
+            <iframe width="100%" height="200"
+                src="https://www.youtube.com/embed/ODj3LpSJJPs?si=iV9HskMqutQ7xpe1"
+                frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="card">
+            <iframe width="100%" height="200"
+                src="https://www.youtube.com/embed/Pw12HrQrRSE?si=iBqCrM89U3a9fsgJ"
+                frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+</section>
+
+<footer id="footer">
+    <p><strong>Loyiha mualliflari:</strong></p>
+    <p>1. Amonov Nematullo</p>
+    <p>2. Asqarov Asror</p>
+    <p>3. Sultonov Javohir</p>
+    <p>4. Begmamatov Behruz</p>
+    <p>5. Urinov Sardor</p>
+    <br>
+    <p>© 2026 Fitrat Merosi</p>
+</footer>
+
+
+<script>
+document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const target = document.querySelector(targetId);
+
+        target.scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+
+function toggleMenu() {
+    document.getElementById("navMenu").classList.toggle("show");
+}
+</script>
+
+
+</body>
+</html>
