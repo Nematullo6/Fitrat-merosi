@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fitrat Merosi</title>
+
+<style>
+:root{
+--bg:#0f172a;
+--card:#1e293bcc;
+--text:white;
+--accent:#38bdf8;
+--footer:#020617;
+--glass:rgba(255,255,255,0.08);
+}
+
+.light{
+--bg:#f1f5f9;
+--card:rgba(255,255,255,0.7);
+--text:#0f172a;
+--accent:#0284c7;
+--footer:#e2e8f0;
+--glass:rgba(255,255,255,0.6);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Tahoma,sans-serif}
+
+body{
+background:var(--bg);
+color:var(--text);
+transition:0.3s;
+}
+
+/* GLASS UI */
+.glass{
+background:var(--glass);
+backdrop-filter:blur(16px);
+border:1px solid rgba(255,255,255,0.15);
+border-radius:16px;
+}
+
+/* NAVBAR */
+nav{
+position:fixed;
+top:0;
+width:100%;
+padding:15px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:1000;
+}
+
+.logo{font-size:22px;font-weight:bold;color:var(--accent)}
+.toggle{cursor:pointer;border:none;padding:8px 14px;border-radius:8px;background:var(--accent);color:white}
+
+/* HERO */
+.hero{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:120px 20px 40px;
+}
+
+.hero h1{font-size:48px;margin-bottom:20px}
+.hero p{max-width:750px;opacity:0.85}
+
+/* SECTION */
+section{padding:80px 20px;max-width:1100px;margin:auto}
+section h2{text-align:center;margin-bottom:30px;color:var(--accent)}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+
+.card{
+padding:25px;
+border-radius:16px;
+box-shadow:0 15px 40px rgba(0,0,0,0.25);
+}
+
+.card h3{margin-bottom:10px;color:var(--accent)}
+
+/* DOWNLOAD */
+.download{
+margin-top:10px;
+display:inline-block;
+background:var(--accent);
+padding:8px 12px;
+border-radius:8px;
+color:white;
+text-decoration:none;
+font-size:14px;
+}
+
+/* AUDIO WAVE */
+.wave{display:flex;gap:4px;margin-top:10px;height:20px;align-items:end}
+.bar{width:4px;background:var(--accent);animation:wave 1s infinite ease-in-out}
+.bar:nth-child(2){animation-delay:.1s}
+.bar:nth-child(3){animation-delay:.2s}
+.bar:nth-child(4){animation-delay:.3s}
+.bar:nth-child(5){animation-delay:.4s}
+@keyframes wave{0%,100%{height:5px}50%{height:20px}}
+.wave.paused .bar{animation-play-state:paused}
+
+/* GLOBAL PLAYER */
+.global-player{
+position:fixed;
+bottom:20px;
+left:50%;
+transform:translateX(-50%);
+width:92%;
+max-width:900px;
+padding:15px;
+display:flex;
+align-items:center;
+gap:15px;
+z-index:999;
+}
+
+.play-btn{
+background:var(--accent);
+border:none;
+padding:10px 14px;
+border-radius:10px;
+color:white;
+cursor:pointer;
+}
+
+.progress{flex:1}
+.progress input{width:100%}
+
+.speed{padding:6px;border-radius:8px}
+
+footer{
+background:var(--footer);
+text-align:center;
+padding:50px 20px;
+margin-top:60px;
+}
+
+/* MOBILE */
+@media(max-width:700px){
+.hero h1{font-size:32px}
+nav{padding:12px 20px}
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="glass">
+<div class="logo">Fitrat Merosi</div>
+<button class="toggle" onclick="toggleTheme()">Dark / Light</button>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+<h1>Abdurauf Fitrat merosi</h1>
+<p>Fitrat hayoti va she'rlarini audio shaklda tinglash uchun zamonaviy platforma.</p>
+</div>
+
+<!-- HAYOTI -->
+<section id="about">
+<h2>Hayoti va ijodi (Audio)</h2>
+<div class="card glass">
+<h3>Fitrat haqida</h3>
+<p>Abdurauf Fitrat — jadidchilik harakatining yetakchi vakili, yozuvchi va olim.</p>
+
+<button onclick="playTrack(0)" class="download">Play</button>
+<div class="wave paused" id="wave0">
+<div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+</div>
+
+<a class="download" href="audio_2026-02-16_23-20-03.ogg" download>Yuklab olish</a>
+</div>
+</section>
+
+<!-- SHERLAR -->
+<section id="audio">
+<h2>She'rlar</h2>
+<div class="grid">
+
+<div class="card glass">
+<h3>Yurt qayg'usi</h3>
+<button onclick="playTrack(1)" class="download">Play</button>
+<a class="download" href="audio_2026-02-16_11-06-00.ogg" download>Yuklab olish</a>
+</div>
+
+<div class="card glass">
+<h3>Kim deyay seni?</h3>
+<button onclick="playTrack(2)" class="download">Play</button>
+<a class="download" href="audio_2026-02-16_23-19-49.ogg" download>Yuklab olish</a>
+</div>
+
+<div class="card glass">
+<h3>O'zbek yoshlariga</h3>
+<button onclick="playTrack(3)" class="download">Play</button>
+<a class="download" href="audio_2026-02-16_23-58-04.ogg" download>Yuklab olish</a>
+</div>
+
+<div class="card glass">
+<h3>She'r 4</h3>
+<button onclick="playTrack(4)" class="download">Play</button>
+<a class="download" href="audio/sher4.mp3" download>Yuklab olish</a>
+</div>
+
+</div>
+</section>
+
+<!-- GLOBAL PLAYER -->
+<div class="global-player glass">
+<button class="play-btn" onclick="togglePlay()">Play / Pause</button>
+<div class="progress">
+<input type="range" id="progress" value="0" min="0" max="100">
+</div>
+<select class="speed" onchange="changeSpeed(this.value)">
+<option value="0.5">0.5x</option>
+<option value="1" selected>1x</option>
+<option value="1.25">1.25x</option>
+<option value="1.5">1.5x</option>
+<option value="2">2x</option>
+</select>
+</div>
+
+<audio id="player"></audio>
+
+<footer>
+<h3>Fitrat Merosi</h3>
+<p>Zamonaviy audio platforma</p>
+<p>1. Amonov Nematullo</p>
+<p>2. Ibragimov Mirfayz</p>
+<p>3. Asqarov Asror</p>
+<p>4. Sultonov Javohir</p>
+<p>5. Urinov Sardor</p>
+<p>6. Begmamatov Bexruz</p>
+<br>
+<br>
+</footer>
+
+<script>
+
+const tracks=[
+"audio_2026-02-16_23-20-03.ogg",
+"audio_2026-02-16_11-06-00.ogg",
+"audio_2026-02-16_23-19-49.ogg",
+"audio_2026-02-16_23-58-04.ogg",
+"audio/sher4.mp3"
+];
+
+let current=0;
+const audio=document.getElementById('player');
+const progress=document.getElementById('progress');
+
+function playTrack(i){
+current=i;
+audio.src=tracks[i];
+audio.play();
+}
+
+function togglePlay(){
+if(audio.paused) audio.play();
+else audio.pause();
+}
+
+/* AUTO NEXT */
+audio.addEventListener('ended',()=>{
+current++;
+if(current<tracks.length) playTrack(current);
+});
+
+/* PROGRESS BAR */
+audio.addEventListener('timeupdate',()=>{
+progress.value=(audio.currentTime/audio.duration)*100 || 0;
+});
+
+progress.addEventListener('input',()=>{
+audio.currentTime=(progress.value/100)*audio.duration;
+});
+
+/* SPEED */
+function changeSpeed(rate){
+audio.playbackRate=rate;
+}
+
+/* DARK LIGHT */
+function toggleTheme(){
+document.body.classList.toggle('light');
+}
+
+/* WAVE SIMPLE */
+audio.addEventListener('play',()=>document.querySelectorAll('.wave').forEach(w=>w.classList.remove('paused')));
+audio.addEventListener('pause',()=>document.querySelectorAll('.wave').forEach(w=>w.classList.add('paused')));
+audio.addEventListener('ended',()=>document.querySelectorAll('.wave').forEach(w=>w.classList.add('paused')));
+
+</script>
+
+</body>
+</html>
